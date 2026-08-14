@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experimental videos for full-speed-range sensorless AFPM operation.">
+  <meta name="theme-color" content="#f7f8f6">
+  <meta property="og:url" content="https://7037xxu.github.io/Sensorless-control/">
+  <link rel="canonical" href="https://7037xxu.github.io/Sensorless-control/">
+  <title>Sensorless AFPM | Experimental Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <span class="brand-mark">AF</span>
+      <span>Sensorless AFPM</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#videos">Videos</a>
+    </nav>
+    <a class="header-link" href="https://github.com/7037xxu/Sensorless-control">Repository</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="project-title">
+      <div class="hero-copy">
+        <h1 id="project-title">Full-Speed-Range Sensorless Operation of a Split-Yoke Axial-Flux Permanent-Magnet Machine</h1>
+      </div>
+    </section>
+
+    <section class="videos-section" id="videos">
+      <div class="section-heading compact">
+        <p class="eyebrow">Experiment videos</p>
+        <h2>Four operating-condition demonstrations</h2>
+        <p>The video shows the test bench and demonstrates that the motor is connected only with the power cable and the feedback cable. In the three operating-condition experiments, the feedback cable has been removed, leaving only the power cable connected, which effectively proves the feasibility of sensorless control.</p>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-heading"><span>01 / Test bench</span><h3>Test bench inspection</h3><p>Inspection of the AFPM prototype, controller, sensing equipment, and loading system.</p></div>
+          <video controls playsinline preload="metadata"><source src="assets/videos/test-bench.mp4" type="video/mp4">Your browser does not support MP4 video.</video>
+        </article>
+        <article class="video-card">
+          <div class="video-heading"><span>02 / Low speed</span><h3>&plusmn;10 r/min speed tracking</h3><p>Repeated rated-load reversals and zero-speed crossings in the HF-injection-dominant region.</p></div>
+          <video controls playsinline preload="metadata"><source src="assets/videos/10rpm.mp4" type="video/mp4">Your browser does not support MP4 video.</video>
+        </article>
+        <article class="video-card">
+          <div class="video-heading"><span>03 / Full range</span><h3>&plusmn;1500 r/min speed tracking</h3><p>Continuous acceleration, reversal, and transition from HF injection to back-EMF-dominant estimation.</p></div>
+          <video controls playsinline preload="metadata"><source src="assets/videos/1500rpm.mp4" type="video/mp4">Your browser does not support MP4 video.</video>
+        </article>
+        <article class="video-card">
+          <div class="video-heading"><span>04 / Position control</span><h3>Sinusoidal position tracking</h3><p>Rated-load tracking of a 360&deg;, 0.1 Hz sinusoidal mechanical-position command.</p></div>
+          <video controls playsinline preload="metadata"><source src="assets/videos/sinusoidal-tracking.mp4" type="video/mp4">Your browser does not support MP4 video.</video>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>Sensorless AFPM Experimental Project</p><a href="#top">Back to top &#8593;</a></footer>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
