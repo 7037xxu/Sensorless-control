@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experimental project page for full-speed-range sensorless AFPM operation.">
+  <meta name="theme-color" content="#f7f8f6">
+  <meta property="og:url" content="https://7037xxu.github.io/Sensorless-control/">
+  <link rel="canonical" href="https://7037xxu.github.io/Sensorless-control/">
+  <title>Sensorless AFPM | Experimental Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <span class="brand-mark">AF</span>
+      <span>Sensorless AFPM</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#method">Method</a>
+      <a href="#experiments">Results</a>
+      <a href="#videos">Videos</a>
+    </nav>
+    <a class="header-link" href="https://github.com/7037xxu/Sensorless-control">Repository</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="paper-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Experimental project</p>
+        <h1 id="paper-title">Full-Speed-Range Sensorless Operation of a Split-Yoke Axial-Flux Permanent-Magnet Machine</h1>
+        <div class="actions" aria-label="Paper resources">
+          <a class="button primary" href="#videos">Watch experiments <span aria-hidden="true">&#8595;</span></a>
+          <a class="button secondary" href="https://github.com/7037xxu/Sensorless-control">View repository <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <div class="hero-metrics" aria-label="Key results">
+          <div><strong>1.6</strong><span>measured saliency ratio</span></div>
+          <div><strong>&plusmn;1500</strong><span>r/min bidirectional range</span></div>
+          <div><strong>4.3</strong><span>N&middot;m rated-load validation</span></div>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/images/machine-exploded-view.png" alt="Exploded view of the split-yoke axial-flux permanent-magnet machine">
+        <figcaption>A low-inertia split-yoke architecture with a stationary magnetic return yoke.</figcaption>
+      </figure>
+    </section>
+
+    <section class="summary-band" id="overview">
+      <div class="section-label">Overview</div>
+      <div class="summary-copy">
+        <h2>Magnetic saliency, designed into the machine.</h2>
+        <p>The split-yoke axial-flux permanent-magnet machine offers low rotor inertia, but its weak magnetic saliency makes standstill and low-speed sensorless control difficult. We introduce a nonuniform permanent-magnet/DT4C composite pole that reshapes the local permeance distribution while preserving the lightweight rotor-support architecture.</p>
+        <p>The resulting inductance anisotropy strengthens the measurement-dependent curvature used by a convex-optimization-based position estimator. Prototype experiments demonstrate direct sensorless startup, stable low-speed reversals, continuous full-speed-range operation, and sinusoidal position tracking under rated load.</p>
+      </div>
+    </section>
+
+    <section class="method-section" id="method">
+      <div class="section-heading">
+        <p class="eyebrow">Machine-side innovation</p>
+        <h2>A composite pole built for observability</h2>
+        <p>The DT4C insert is thinner at the pole center and thicker at the circumferential sides. This tailored profile reduces<br class="desktop-break"> q-axis reluctance more strongly than d-axis reluctance, producing the desired relationship L<sub>d</sub> &lt; L<sub>q</sub>.</p>
+      </div>
+      <div class="method-layout">
+        <figure class="figure-main">
+          <img src="assets/images/composite-pole.png" alt="Geometry and cross-sectional profile of the proposed composite pole">
+          <figcaption>Composite-pole geometry: permanent magnet, DT4C insert, edge fillets, and nonuniform axial profile.</figcaption>
+        </figure>
+        <div class="principles" aria-label="Design principles">
+          <article><div class="principle-title"><span class="step">01</span><h3>Enhance anisotropy</h3></div><p>Redistribute magnetic permeance to separate the d- and q-axis inductances.</p></article>
+          <article><div class="principle-title"><span class="step">02</span><h3>Preserve low inertia</h3></div><p>Avoid flux barriers in the thin rotor frame and retain the split-yoke architecture.</p></article>
+          <article><div class="principle-title"><span class="step">03</span><h3>Design sequentially</h3></div><p>Use 3-D FEA to determine insert curvature and inner/outer pole-edge fillets.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="control-section">
+      <div class="section-heading compact">
+        <p class="eyebrow">Sensorless drive</p>
+        <h2>A unified estimator across the full speed range</h2>
+        <p>High-frequency injection supplies position information near standstill. As speed increases, back-EMF becomes dominant while the same convex-optimization-based estimator maintains a continuous position estimate.</p>
+      </div>
+      <figure class="wide-figure">
+        <img src="assets/images/control-framework.png" alt="Control framework of the convex-optimization-based sensorless AFPM drive">
+        <figcaption>The resolver is used only for offline error evaluation and is excluded from estimation and control.</figcaption>
+      </figure>
+    </section>
+
+    <section class="results-section" id="experiments">
+      <div class="section-heading light">
+        <p class="eyebrow">Experimental validation</p>
+        <h2>Continuous control from standstill to rated speed</h2>
+        <p>All dynamic experiments are conducted at the rated load of 4.3 N&middot;m.</p>
+      </div>
+      <div class="result-grid">
+        <article class="result-card">
+          <div class="result-topline"><span>Low speed</span><strong>&plusmn;10 r/min</strong></div>
+          <img src="assets/images/experiment-10rpm.png" alt="Rated-load sensorless operation at plus and minus 10 revolutions per minute">
+          <div class="result-copy"><h3>Repeated low-speed reversals</h3><p>Continuous estimated position through reversals and zero-speed crossings, with no accumulated drift.</p><dl><div><dt>Position error</dt><dd>6.1&deg; max / 2.9&deg; RMS</dd></div><div><dt>Speed error</dt><dd>12.4 max / 3.7 RMS r/min</dd></div></dl></div>
+        </article>
+        <article class="result-card">
+          <div class="result-topline"><span>Full range</span><strong>&plusmn;1500 r/min</strong></div>
+          <img src="assets/images/experiment-1500rpm.png" alt="Full-speed-range bidirectional sensorless operation up to plus and minus 1500 revolutions per minute">
+          <div class="result-copy"><h3>Bidirectional full-range operation</h3><p>Stable acceleration, deceleration, standstill dwell, reversal, and high-frequency-injection transition.</p><dl><div><dt>Position error</dt><dd>10.0&deg; max / 3.2&deg; RMS</dd></div><div><dt>Speed error</dt><dd>9.2 max / 1.9 RMS r/min</dd></div></dl></div>
+        </article>
+        <article class="result-card result-wide">
+          <div class="result-topline"><span>Position control</span><strong>360&deg; at 0.1 Hz</strong></div>
+          <img src="assets/images/sinusoidal-tracking.png" alt="Rated-load sensorless sinusoidal position tracking">
+          <div class="result-copy"><h3>Sinusoidal position tracking</h3><p>The estimator remains bounded over repeated bidirectional cycles. Tracking and estimation errors remain low under rated load.</p><dl><div><dt>Tracking error</dt><dd>5.2&deg; RMS</dd></div><div><dt>Estimation error</dt><dd>3.0&deg; RMS</dd></div></dl></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="bench-section">
+      <div class="section-heading compact">
+        <p class="eyebrow">Test bench</p>
+        <h2>Experimental platform</h2>
+        <p>The setup combines an AFPM prototype, motor controller, torque/speed sensor, power analyzer, oscilloscope, and magnetic-powder brake.</p>
+      </div>
+      <figure class="wide-figure bench-figure"><img src="assets/images/test-bench.png" alt="Experimental platform and its major components"></figure>
+    </section>
+
+    <section class="videos-section" id="videos">
+      <div class="section-heading compact">
+        <p class="eyebrow">Experiment videos</p>
+        <h2>Four operating-condition demonstrations</h2>
+        <p>The video shows the test bench and demonstrates that the motor is connected only with the power cable and the feedback cable. In the three operating-condition experiments, the feedback cable has been removed, leaving only the power cable connected, which effectively proves the feasibility of sensorless control.</p>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-heading"><span>01 / Test bench</span><h3>Test bench inspection</h3><p>Inspection of the AFPM prototype, controller, sensing equipment, and loading system.</p></div>
+          <video controls playsinline preload="metadata" poster="assets/images/test-bench.png"><source src="assets/videos/test-bench.mp4" type="video/mp4">Your browser does not support MP4 video.</video>
+        </article>
+        <article class="video-card">
+          <div class="video-heading"><span>02 / Low speed</span><h3>&plusmn;10 r/min operation</h3><p>Repeated rated-load reversals and zero-speed crossings in the HF-injection-dominant region.</p></div>
+          <video controls playsinline preload="metadata" poster="assets/images/experiment-10rpm.png"><source src="assets/videos/10rpm.mp4" type="video/mp4">Your browser does not support MP4 video.</video>
+        </article>
+        <article class="video-card">
+          <div class="video-heading"><span>03 / Full range</span><h3>&plusmn;1500 r/min operation</h3><p>Continuous acceleration, reversal, and transition from HF injection to back-EMF-dominant estimation.</p></div>
+          <video controls playsinline preload="metadata" poster="assets/images/experiment-1500rpm.png"><source src="assets/videos/1500rpm.mp4" type="video/mp4">Your browser does not support MP4 video.</video>
+        </article>
+        <article class="video-card">
+          <div class="video-heading"><span>04 / Position control</span><h3>Sinusoidal position tracking</h3><p>Rated-load tracking of a 360&deg;, 0.1 Hz sinusoidal mechanical-position command.</p></div>
+          <video controls playsinline preload="metadata" poster="assets/images/sinusoidal-tracking.png"><source src="assets/videos/sinusoidal-tracking.mp4" type="video/mp4">Your browser does not support MP4 video.</video>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer><p>Sensorless AFPM Experimental Project</p><a href="#top">Back to top &#8593;</a></footer>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
