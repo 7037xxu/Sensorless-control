@@ -6,14 +6,16 @@ This project page presents an experimental study of sensorless operation for a s
 
 The machine uses a nonuniform permanent-magnet/DT4C composite pole. The insert is thinner near the pole center and thicker toward the circumferential sides, reshaping the local permeance distribution so that the q-axis inductance is larger than the d-axis inductance. This machine-side saliency enhancement improves the position-dependent current response without introducing flux barriers into the thin rotor-support frame.
 
+![Unified full-speed-range sensorless-control framework](assets/images/control-framework.png)
+
 The drive uses a unified convex-optimization-based position estimator across the full speed range. High-frequency signal injection supplies position information near standstill and at low speed; as speed increases, back-EMF becomes increasingly dominant. The same estimator maintains continuous position information through acceleration, deceleration, zero-speed dwell, and direction reversal.
 
 ## Experimental highlights
 
 | Condition | Position error | Speed error |
 |---|---:|---:|
-| Rated-load operation at +/-10 r/min | 6.1 deg max / 2.9 deg RMS | 12.4 max / 3.7 RMS r/min |
-| Rated-load operation up to +/-1500 r/min | 10.0 deg max / 3.2 deg RMS | 9.2 max / 1.9 RMS r/min |
+| Rated-load operation at +/-10 r/min | 2.9 deg RMS | 3.7 RMS r/min |
+| Rated-load operation up to +/-1500 r/min | 3.2 deg RMS | 1.9 RMS r/min |
 | Sinusoidal position tracking at 0.1 Hz | 5.2 deg RMS tracking error | 3.0 deg RMS estimation error |
 
 The measured saliency ratio reaches 1.6, with an inductance difference of 0.8 mH. The experiments demonstrate direct sensorless startup, bidirectional low-speed operation, continuous operation up to +/-1500 r/min, and rated-load sinusoidal position tracking.
