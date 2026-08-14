@@ -13,7 +13,7 @@ The drive uses a unified convex-optimization-based position estimator across the
 ## Experimental highlights
 
 | Condition | Position error | Speed error |
-|---|---:|---:|
+|:---:|:---:|:---:|
 | Rated-load operation at +/-10 r/min | 2.9 deg RMS | 3.7 RMS r/min |
 | Rated-load operation up to +/-1500 r/min | 3.2 deg RMS | 1.9 RMS r/min |
 | Sinusoidal position tracking at 0.1 Hz | 5.2 deg RMS tracking error | 3.0 deg RMS estimation error |
